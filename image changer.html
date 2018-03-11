@@ -9,7 +9,7 @@
  - zobrazenie obrazku viackrat
  - vykreslenie options vzdy v strede pod menu, ktore ho spustilo - posuvanie div pod iny div 
  - z-index - preco len konkretny div a nie hlavny? preco okolie vidno spodny div a preco nie je hlavny div cely nad nim
-POKUS
+finalne otestovanie
 
  -->
     <script>
@@ -49,7 +49,6 @@ POKUS
         function updateImage() {
             document.getElementById("myImg").src = pomocnyNazov + vyska + "-" + sirka + "-" + farba + ".jpg";
             document.getElementById("myImg2").src = pomocnyNazov + vyska + "-" + sirka + "-" + farba + ".jpg";
-            // document.getElementById("myImg").src = "monitor.jpeg";
         }
 
         function showHide () {
@@ -76,7 +75,6 @@ POKUS
   <li><a onclick="showColor()">Klucky</a></li>
   
 </ul>
-<!-- <p id="odsek">fg</p> -->
 
     <div id="rozmerVyber" class="containerMain">
         <div id="vyskaMoznosti">
@@ -105,7 +103,6 @@ POKUS
         <div class="containerSmall"> 
             <div class="showImageMain">
                 <img id="myImg">
-                <!-- <img src="monitor.jpeg"> -->
             </div>
 
             <div class="choiceMade" id="vyberMoznosti">
