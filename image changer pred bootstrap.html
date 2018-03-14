@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+
+<!-- 
+ - zobrazenie obrazku viackrat
+ - vykreslenie options vzdy v strede pod menu, ktore ho spustilo - posuvanie div pod iny div 
+ - z-index - preco len konkretny div a nie hlavny? preco okolie vidno spodny div a preco nie je hlavny div cely nad nim
+finalne otestovanie
+
+ -->
+    <script>
+        var pomocnyNazov = "rea-office-";
+        var vyska = "10";
+        var sirka = "10";
+        var farba = "biela";
+        var onOFF = "hidden";
+
+
+        function showDimensions() {
+            document.getElementById("rozmerVyber").style.display = "block";
+            document.getElementById("farbaVyber").style.display = "none";
+        }
+
+        function showColor() {
+            // updateImage();
+            document.getElementById("rozmerVyber").style.display = "none";
+            document.getElementById("farbaVyber").style.display = "block";
+        }
+
+        function changeColor(color) {
+            farba = color;
+            updateImage();
+        }
+
+        function changeWidth(width) {
+            sirka = width;
+            updateImage();
+        }
+
+        function changeHeight(height) {
+            vyska = height;
+            updateImage();
+        }
+
+        function updateImage() {
+            document.getElementById("myImg").src = pomocnyNazov + vyska + "-" + sirka + "-" + farba + ".jpg";
+            document.getElementById("myImg2").src = pomocnyNazov + vyska + "-" + sirka + "-" + farba + ".jpg";
+        }
+
+        function showHide () {
+            if (onOFF== "hidden") {
+                onOFF = "visible";
+            }
+            else {
+                onOFF = "hidden";
+            }
+            document.getElementById('vyberMoznosti').style.visibility = onOFF;
+        }
+
+        window.onload = function (e) {
+            showDimensions();
+            updateImage();
+        }
+    </script>
+
+    <body>
+
+    	<ul>
+  <li><a onclick="showDimensions()">Rozmery</a></li>
+  <li><a onclick="showColor()">Farba</a></li>
+  <li><a onclick="showColor()">Klucky</a></li>
+  
+</ul>
+
+    <div id="rozmerVyber" class="containerMain">
+        <div id="vyskaMoznosti">
+            <p><b>Vyska</b></p>
+            <button onclick=changeHeight("10")>Maly</button>
+            <button onclick=changeHeight("20")>Stredny</button>
+        </div>
+        <div id="sirkaMoznosti">
+            <p><b>Sirka</b></p>
+            <button onclick=changeWidth("10")>Uzky</button>
+            <button onclick=changeWidth("20")>Siroky</button>
+        </div>
+        <div class="showImageMain">
+            <img id="myImg2">
+        </div>
+    </div>
+
+    <div id="farbaVyber" class="containerMain">
+        <div class="choiceMenu">
+            <span>Vyber farbu</span>
+            <span onclick="showHide()"><img src="ikona_vyber_farba.jpg"></span>  
+            <span>alebo policiek</span>                   
+            <span onclick="showHide()"><img src="ikona_vyber_farba.jpg"></span>  
+        </div>
+
+        <div class="containerSmall"> 
+            <div class="showImageMain">
+                <img id="myImg">
+            </div>
+
+            <div class="choiceMade" id="vyberMoznosti">
+                <div>
+                    <span onclick=changeColor("graphite") style="padding-right:30px; padding-top: 3px; display:inline-block;"><img src="farba-anthrayzit.jpg"></span>
+                    <span style="padding-right:3px; padding-top: 3px; display:inline-block;"><img src="farba-rot.jpg"></span>
+                    <span style="padding-right:3px; padding-top: 3px; display:inline-block;"><img src="farba-schwarz.jpg"></span>
+                </div>
+               <div>
+                    <span style="padding-right:3px; padding-top: 3px; display:inline-block;"><img src="farba-gelb.jpg"></span>
+                    <span onclick=changeColor("biela") style="padding-right:3px; padding-top: 3px; display:inline-block;"><img src="farba-weiss.jpg"></span>
+                    <span style="padding-right:3px; padding-top: 3px; display:inline-block;"><img src="farba-nussbaum.jpg"></span>
+                </div>
+            </div>
+        </div>
+            <div>
+                <div class="choiceButton">
+                <p><b>Farba</b></p>
+                <button onclick=changeColor("biela")>Biela</button>
+                <button onclick=changeColor("buk")>Buk</button>
+                <button onclick=changeColor("dub-bardolino")>Dub-Bardolino</button>
+                <button onclick=changeColor("dub-canyon")>Dub-Canyon</button>
+                <button onclick=changeColor("graphite")>Graphite</button>
+                <button onclick=changeColor("navarra")>Navarra</button>
+                <button onclick=changeColor("orech")>Orech</button>
+                <button onclick=changeColor("wenge")>Wenge</button>
+            </div>
+    </div>
+
+            
+
+    </body>
+</html>
